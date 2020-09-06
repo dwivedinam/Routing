@@ -8,6 +8,9 @@ import { AttributesComponent } from './attributes/attributes.component';
 import { MatCardModule, MatSidenavModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeTypSideNavComponent } from '../css/Basiccss/home-typ-side-nav/home-typ-side-nav.component';
+import { HomeOneComponent } from '../css/Basiccss/home-one/home-one.component';
+import { HomeTwoComponent } from '../css/Basiccss/home-two/home-two.component';
+import { HomeThreeComponent } from '../css/Basiccss/home-three/home-three.component';
 
 
 
@@ -17,10 +20,19 @@ const htmlRouter: Routes = [
     children: [
       {
         path: 'home', component: HomeComponent,
-      //  children: [
-      //   {path: 'basiccss' , component: HomeTypSideNavComponent }
+      },
+      {
+        path: 'basiccss',
+        component: HomeTypSideNavComponent,
+        children: [
+          { path: 'one', component: HomeOneComponent },
 
-      //  ]
+          { path: 'two', component: HomeTwoComponent, },
+
+          { path: 'three', component: HomeThreeComponent, },
+
+          // { path: '**', redirectTo: 'basiccss', },
+        ]
       },
       {
         path: 'basic', component: BasicComponent,
@@ -32,7 +44,7 @@ const htmlRouter: Routes = [
         path: 'attributes', component: AttributesComponent,
       },
       {
-        path: '**', redirectTo: 'home',
+        path: '**', redirectTo: 'basiccss',
       },
     ]
   }

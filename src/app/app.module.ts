@@ -15,6 +15,9 @@ import { MatSidenavModule, MatCardModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { BasicModule } from './css/Basiccss/basic.module';
+import { UserDetailsComponent } from './HTTP-ERROR-HANDLING/user-details/user-details.component';
+import { UserService } from './HTTP-ERROR-HANDLING/services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const mainRouter: Routes = [
   {
@@ -26,10 +29,9 @@ const mainRouter: Routes = [
     loadChildren: './css#CssModule.module'
   },
   {
-    path: 'basiccss',
-    loadChildren: './css/Basiccss#BasicModule.module'
+    path: 'errorhandling',
+    component: UserDetailsComponent
   },
-
   {
     path: '**',
     redirectTo: ''
@@ -44,6 +46,7 @@ const mainRouter: Routes = [
   declarations: [
     AppComponent,
     MainSideNavComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,9 +56,10 @@ const mainRouter: Routes = [
     HtmlModule,
     CssModule,
     BasicModule,
+    HttpClientModule,
     RouterModule.forRoot(mainRouter)
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

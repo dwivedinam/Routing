@@ -10,14 +10,6 @@ import { MatCardModule, MatSidenavModule } from '@angular/material';
 const htmlRouters: Routes = [
   {
     path: 'basiccss', component: HomeTypSideNavComponent,
-    children: [
-      { path: 'one', component: HomeOneComponent },
-
-      { path: 'two', component: HomeTwoComponent, },
-
-      { path: 'three', component: HomeThreeComponent, },
-      { path: '**', redirectTo: 'home', },
-    ]
   }
 ];
 

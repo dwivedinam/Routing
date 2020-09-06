@@ -22,7 +22,7 @@ const cssRoutes: Routes = [
         path: 'introduction', component: IntroductionComponent
       },
       {
-        path: '**', redirectTo: ''
+        path: '**', redirectTo: 'css'
       },
     ]
   }
